@@ -1,0 +1,199 @@
+:root {
+  color-scheme: light;
+  --brg-900: #0b3d2e;
+  --brg-800: #0f4d39;
+  --brg-700: #166246;
+  --cream-050: #f8f5eb;
+  --cream-100: #efe8d7;
+  --gold-500: #c5a253;
+  --ink-900: #11231d;
+  --ink-700: #2f4a41;
+  --page-bg: var(--cream-050);
+  --page-text: var(--ink-900);
+  --header-bg: color-mix(in srgb, var(--brg-900) 94%, black);
+  --header-text: var(--cream-050);
+  --card-bg: #ffffff;
+  --card-border: color-mix(in srgb, var(--brg-700) 30%, transparent);
+  --line-border: color-mix(in srgb, var(--ink-700) 20%, transparent);
+  --footer-text: var(--ink-700);
+  --input-bg: var(--cream-050);
+  --input-border: var(--gold-500);
+  --input-text: var(--ink-900);
+  --nav-link-bg: color-mix(in srgb, var(--brg-800) 70%, transparent);
+  --nav-link-hover: var(--brg-700);
+  --nav-link-text: var(--cream-050);
+  --nav-link-border: color-mix(in srgb, var(--gold-500) 70%, white);
+  --heading-color: var(--brg-800);
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page-bg: #071a14;
+  --page-text: #e7efe9;
+  --header-bg: color-mix(in srgb, var(--brg-900) 90%, black);
+  --header-text: #f2f7f3;
+  --card-bg: #0f2a21;
+  --card-border: color-mix(in srgb, var(--gold-500) 24%, var(--brg-700));
+  --line-border: color-mix(in srgb, var(--cream-050) 20%, transparent);
+  --footer-text: #c3d4cd;
+  --input-bg: #123328;
+  --input-border: color-mix(in srgb, var(--gold-500) 70%, white);
+  --input-text: #f0f5f2;
+  --nav-link-bg: color-mix(in srgb, var(--brg-700) 76%, black);
+  --nav-link-hover: color-mix(in srgb, var(--brg-700) 90%, var(--gold-500));
+  --nav-link-text: #f3f7f4;
+  --nav-link-border: color-mix(in srgb, var(--gold-500) 65%, #d9c08a);
+  --heading-color: #d8bc7a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  background: var(--page-bg);
+  color: var(--page-text);
+}
+
+.container {
+  width: min(1000px, 92vw);
+  margin: 0 auto;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--brg-700);
+  background: var(--header-bg);
+  color: var(--header-text);
+  z-index: 1;
+}
+
+.header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.site-header h1 {
+  margin: 0;
+  padding-top: 1rem;
+}
+
+.theme-toggle,
+.view-switch {
+  margin-top: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--nav-link-border);
+  padding: 0.4rem 0.65rem;
+  font: inherit;
+  color: var(--nav-link-text);
+  background: var(--nav-link-bg);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible,
+.view-switch:hover,
+.view-switch:focus-visible {
+  background: var(--nav-link-hover);
+}
+
+.subtitle {
+  margin: 0.35rem 0 1rem;
+  opacity: 0.85;
+}
+
+.section-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.9rem;
+}
+
+.section-nav a {
+  text-decoration: none;
+  color: var(--nav-link-text);
+  border: 1px solid var(--nav-link-border);
+  border-radius: 999px;
+  padding: 0.3rem 0.7rem;
+  background: var(--nav-link-bg);
+}
+
+.section-nav a:hover,
+.section-nav a:focus-visible {
+  background: var(--nav-link-hover);
+}
+
+.filter-label {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+}
+
+.filter-input {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.55rem 0.7rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--input-border);
+  background: var(--input-bg);
+  color: var(--input-text);
+  font: inherit;
+}
+
+main {
+  padding: 1rem 0 2rem;
+}
+
+.card {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--card-border);
+  background: var(--card-bg);
+  border-radius: 0.75rem;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 0.5rem;
+  border-bottom: 1px solid var(--line-border);
+  vertical-align: top;
+}
+
+th {
+  font-weight: 600;
+  color: var(--heading-color);
+}
+
+.site-footer {
+  border-top: 1px solid color-mix(in srgb, var(--brg-700) 30%, transparent);
+  padding: 1rem 0 2rem;
+  color: var(--footer-text);
+}
+
+.hidden {
+  display: none;
+}

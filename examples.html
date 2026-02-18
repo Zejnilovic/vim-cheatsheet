@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vim Cheat Sheet — Examples</title>
+    <meta
+      name="description"
+      content="Practical Vim examples and command flows for everyday editing tasks."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <div class="header-top">
+          <h1>Vim Examples</h1>
+          <div class="header-actions">
+            <a class="view-switch" href="index.html">Cheat Sheet</a>
+            <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to dark mode">
+              Dark mode
+            </button>
+          </div>
+        </div>
+        <p class="subtitle">Short workflows you can run immediately in normal editing sessions.</p>
+
+        <nav aria-label="Examples Sections" class="section-nav">
+          <a href="#editing-flow">Editing Flow</a>
+          <a href="#navigation-flow">Navigation Flow</a>
+          <a href="#search-flow">Search & Replace Flow</a>
+          <a href="#window-flow">Windows & Tabs Flow</a>
+          <a href="#macro-flow">Macros Flow</a>
+          <a href="#buffer-flow">Buffers Flow</a>
+          <a href="#refactor-flow">Refactor Workflows</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section id="editing-flow" class="card">
+        <h2>Editing Flow: Rename and reword quickly</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Step</th>
+              <th>Command</th>
+              <th>What it does</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>/oldName</td><td>Jump to first occurrence</td></tr>
+            <tr><td>2</td><td>ciwnewName</td><td>Change current word and insert replacement</td></tr>
+            <tr><td>3</td><td>n . n .</td><td>Move to next match and repeat same change</td></tr>
+            <tr><td>4</td><td>:w</td><td>Save file</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="navigation-flow" class="card">
+        <h2>Navigation Flow: Move around large files</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Step</th>
+              <th>Command</th>
+              <th>What it does</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>gg</td><td>Go to top of file</td></tr>
+            <tr><td>2</td><td>}</td><td>Jump paragraph-by-paragraph</td></tr>
+            <tr><td>3</td><td>/functionName</td><td>Search exact symbol name</td></tr>
+            <tr><td>4</td><td>%</td><td>Jump matching bracket for context</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="search-flow" class="card">
+        <h2>Search & Replace Flow: Safe global rename</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Step</th>
+              <th>Command</th>
+              <th>What it does</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>:%s/old/new/gc</td><td>Replace with confirmation</td></tr>
+            <tr><td>2</td><td>y / n / a / q</td><td>Accept, skip, all, or quit per match</td></tr>
+            <tr><td>3</td><td>:noh</td><td>Clear highlight noise after replacing</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="window-flow" class="card">
+        <h2>Windows & Tabs Flow: Compare two files</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Step</th>
+              <th>Command</th>
+              <th>What it does</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>:vsplit other-file.txt</td><td>Open comparison file in vertical split</td></tr>
+            <tr><td>2</td><td>Ctrl-w h / Ctrl-w l</td><td>Switch focus between files</td></tr>
+            <tr><td>3</td><td>:tabnew notes.txt</td><td>Open a scratch notes tab</td></tr>
+            <tr><td>4</td><td>gt / gT</td><td>Move through tabs while keeping splits intact</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="macro-flow" class="card">
+        <h2>Macros Flow: Repeat edits across lines</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Step</th>
+              <th>Command</th>
+              <th>What it does</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>qa</td><td>Start recording macro into register a</td></tr>
+            <tr><td>2</td><td>I- &lt;Esc&gt;</td><td>Add a bullet prefix at line start</td></tr>
+            <tr><td>3</td><td>j</td><td>Move to next line for next repetition</td></tr>
+            <tr><td>4</td><td>q</td><td>Stop recording macro</td></tr>
+            <tr><td>5</td><td>10@a</td><td>Run macro 10 times on following lines</td></tr>
+            <tr><td>6</td><td>@@</td><td>Repeat the last executed macro once more</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="buffer-flow" class="card">
+        <h2>Buffers Flow: Jump between active files fast</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Step</th>
+              <th>Command</th>
+              <th>What it does</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>:ls</td><td>List all open buffers with their IDs</td></tr>
+            <tr><td>2</td><td>:b 3</td><td>Switch directly to buffer number 3</td></tr>
+            <tr><td>3</td><td>:bnext / :bprev</td><td>Cycle forward or backward through buffers</td></tr>
+            <tr><td>4</td><td>:b#</td><td>Toggle back to previous buffer</td></tr>
+            <tr><td>5</td><td>:bd</td><td>Close current buffer without quitting Vim</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="refactor-flow" class="card">
+        <h2>Common Refactor Workflows</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Goal</th>
+              <th>Command flow</th>
+              <th>Why it works</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Rename one symbol safely</td>
+              <td>/oldName, then ciwnewName, then n .</td>
+              <td>Uses targeted search plus repeatable change</td>
+            </tr>
+            <tr>
+              <td>Reformat a repeated line pattern</td>
+              <td>qa, edit line, j, q, then 20@a</td>
+              <td>Macro captures one edit and applies it many times</td>
+            </tr>
+            <tr>
+              <td>Wrap words or arguments quickly</td>
+              <td>ci( ... ) or ci" ... "</td>
+              <td>Text objects replace only inside delimiters</td>
+            </tr>
+            <tr>
+              <td>Apply selective global replacement</td>
+              <td>:%s/old/new/gc</td>
+              <td>Confirmation mode avoids accidental replacements</td>
+            </tr>
+            <tr>
+              <td>Inspect and patch across files</td>
+              <td>:vsplit fileB, then Ctrl-w h/l, then :bnext</td>
+              <td>Splits and buffers speed side-by-side refactoring</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>Static site for GitHub Pages. See <a href="index.html">cheatsheet</a> for the main reference.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

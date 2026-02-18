@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vim Cheat Sheet</title>
+    <meta
+      name="description"
+      content="A fast, static Vim motions cheat sheet for quick lookup."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <div class="header-top">
+          <h1>Vim Cheat Sheet</h1>
+          <div class="header-actions">
+            <a class="view-switch" href="examples.html">Examples</a>
+            <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to dark mode">
+              Dark mode
+            </button>
+          </div>
+        </div>
+        <p class="subtitle">Quickly find motions, operators, and common editing combos.</p>
+
+        <nav aria-label="Sections" class="section-nav">
+          <a href="#movement">Movement</a>
+          <a href="#editing">Editing</a>
+          <a href="#search">Search</a>
+          <a href="#windows">Windows & Tabs</a>
+          <a href="#visual">Visual Mode</a>
+          <a href="#registers">Registers</a>
+          <a href="#quick">Quick Combos</a>
+          <a href="#number-ops">Number Ops</a>
+          <a href="#visual-block">Visual Block</a>
+          <a href="#fold-commands">Folds</a>
+        </nav>
+
+        <label for="filter" class="filter-label">Filter commands</label>
+        <input
+          id="filter"
+          class="filter-input"
+          type="search"
+          placeholder="Type to filter command or description…"
+        />
+      </div>
+    </header>
+
+    <main class="container">
+      <section id="movement" class="card">
+        <h2>Movement</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Command</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>h / j / k / l</td><td>Left / down / up / right</td></tr>
+            <tr><td>w / b</td><td>Next / previous word start</td></tr>
+            <tr><td>e / ge</td><td>Next / previous word end</td></tr>
+            <tr><td>0 / ^ / $</td><td>Line start / first non-blank / line end</td></tr>
+            <tr><td>gg / G</td><td>Top / bottom of file</td></tr>
+            <tr><td>{ / }</td><td>Previous / next paragraph</td></tr>
+            <tr><td>f{char} / t{char}</td><td>Jump to / before character on line</td></tr>
+            <tr><td>%</td><td>Jump matching bracket or pair</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="editing" class="card">
+        <h2>Editing</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Command</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>i / a</td><td>Insert before / after cursor</td></tr>
+            <tr><td>I / A</td><td>Insert at line start / append line end</td></tr>
+            <tr><td>o / O</td><td>Open line below / above</td></tr>
+            <tr><td>x / X</td><td>Delete character under / before cursor</td></tr>
+            <tr><td>dd / D</td><td>Delete line / to end of line</td></tr>
+            <tr><td>yy / p / P</td><td>Yank line / paste after / before</td></tr>
+            <tr><td>u / Ctrl-r</td><td>Undo / redo</td></tr>
+            <tr><td>.</td><td>Repeat last change</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="search" class="card">
+        <h2>Search & Replace</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Command</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>/pattern</td><td>Search forward</td></tr>
+            <tr><td>?pattern</td><td>Search backward</td></tr>
+            <tr><td>n / N</td><td>Next / previous match</td></tr>
+            <tr><td>* / #</td><td>Search word under cursor forward / backward</td></tr>
+            <tr><td>:%s/old/new/g</td><td>Replace all in file</td></tr>
+            <tr><td>:%s/old/new/gc</td><td>Replace all with confirmation</td></tr>
+            <tr><td>:noh</td><td>Clear search highlight</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="windows" class="card">
+        <h2>Windows & Tabs</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Command</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>:split / :vsplit</td><td>Horizontal / vertical split</td></tr>
+            <tr><td>Ctrl-w h/j/k/l</td><td>Move between splits</td></tr>
+            <tr><td>Ctrl-w =</td><td>Equalize split sizes</td></tr>
+            <tr><td>:tabnew</td><td>Open new tab</td></tr>
+            <tr><td>gt / gT</td><td>Next / previous tab</td></tr>
+            <tr><td>:q / :wq / :qa!</td><td>Quit / save+quit / quit all force</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="visual" class="card">
+        <h2>Visual Mode</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Command</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>v</td><td>Start character-wise selection</td></tr>
+            <tr><td>V</td><td>Start line-wise selection</td></tr>
+            <tr><td>Ctrl-v</td><td>Start block selection</td></tr>
+            <tr><td>&gt; / &lt;</td><td>Indent right / left selection</td></tr>
+            <tr><td>y / d / c</td><td>Yank / delete / change selection</td></tr>
+            <tr><td>gv</td><td>Reselect last visual selection</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="registers" class="card">
+        <h2>Registers</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Command</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>"ayy</td><td>Yank line into register a</td></tr>
+            <tr><td>"ap</td><td>Paste from register a</td></tr>
+            <tr><td>:reg</td><td>List register contents</td></tr>
+            <tr><td>"+y / "+p</td><td>Copy / paste to system clipboard</td></tr>
+            <tr><td>"0p</td><td>Paste last yank register</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="quick" class="card">
+        <h2>Quick Combos (Operator + Motion)</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Command</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>dw / diw</td><td>Delete to next word / inner word</td></tr>
+            <tr><td>cw / ci"</td><td>Change word / inside quotes</td></tr>
+            <tr><td>da( / ci(</td><td>Delete around / change inside parentheses</td></tr>
+            <tr><td>y$ / d$</td><td>Yank / delete to end of line</td></tr>
+            <tr><td>gUiw / guiw</td><td>Uppercase / lowercase current word</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="number-ops" class="card">
+        <h2>Number Operations</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Command</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Ctrl-a</td><td>Increment number under cursor</td></tr>
+            <tr><td>Ctrl-x</td><td>Decrement number under cursor</td></tr>
+            <tr><td>10 Ctrl-a</td><td>Increment by 10</td></tr>
+            <tr><td>10 Ctrl-x</td><td>Decrement by 10</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="visual-block" class="card">
+        <h2>Visual Block Edits</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Command</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Ctrl-v</td><td>Enter block selection mode</td></tr>
+            <tr><td>Ctrl-v I text Esc</td><td>Insert text at column across multiple lines</td></tr>
+            <tr><td>Ctrl-v A text Esc</td><td>Append text at column across multiple lines</td></tr>
+            <tr><td>Ctrl-v d</td><td>Delete selected block</td></tr>
+            <tr><td>Ctrl-v r char</td><td>Replace block with single character</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="fold-commands" class="card">
+        <h2>Fold Commands</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Command</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>za</td><td>Toggle fold at cursor</td></tr>
+            <tr><td>zc / zo</td><td>Close / open fold at cursor</td></tr>
+            <tr><td>zM / zR</td><td>Close / open all folds in file</td></tr>
+            <tr><td>zj / zk</td><td>Jump to next / previous fold</td></tr>
+            <tr><td>:set foldmethod=indent</td><td>Enable automatic fold by indentation</td></tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>Static site for GitHub Pages. See <a href="examples.html">examples</a> for practical usage flows.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
